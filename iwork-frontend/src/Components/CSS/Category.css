@@ -1,0 +1,20 @@
+#link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5s ease-in-out;
+    padding-left: 20px;
+  }
+  #linkl {
+    text-decoration: none;
+    color: black;
+    padding-left: 40px;
+    transition: color 0.5s ease-in-out;
+  }
+  #linkl:hover {
+    color: #0f0f0f; /* Change to the desired hover color */
+    text-decoration: underline;
+  }
+#link:hover{
+    color: #0f0f0f; /* Change to the desired hover color */
+    text-decoration: underline;
+}  
