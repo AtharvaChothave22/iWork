@@ -1,0 +1,9 @@
+package com.freelancing.webapplication.payloads;
+
+public class ApiResponse {
+
+	private String message;
+	private boolean success;
+	
+	
+}

@@ -1,0 +1,44 @@
+package com.freelancing.webapplication.payloads;
+
+
+import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@Getter
+@Setter
+public class UserDto {
+	
+	private int userId;
+	
+	@NotNull
+	private String firstName;
+	
+	@NotNull
+	private String lastName;
+	
+	@NotNull
+	@Email
+	private String email;
+	
+	@NotNull
+	private String password;
+	
+	@NotNull
+	private String mobileNumber;
+	
+	@NotNull
+	private String city;
+	
+	@NotNull
+	private String country;
+	
+	@NotNull
+	private String image;
+	
+	@NotNull
+	private String about;
+
+}

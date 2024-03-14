@@ -1,0 +1,51 @@
+package com.freelancing.webapplication.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.freelancing.webapplication.entities.User;
+import com.freelancing.webapplication.payloads.UserDto;
+import com.freelancing.webapplication.repositories.UserRepo;
+import com.freelancing.webapplication.services.UserService;
+import org.modelmapper.ModelMapper;
+
+public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	private UserRepo userRepo;
+	@Autowired
+	private ModelMapper modelMapper;
+
+	@Override
+	public UserDto createUser(UserDto user) {
+		User newUser = this.modelMapper.map(user, User.class);
+		User savedUser = this.userRepo.save(newUser);
+		return this.modelMapper.map(user, UserDto.class);
+	}
+
+	@Override
+	public UserDto updateUser(UserDto user, Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserDto getUserById(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserDto> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUser(Integer userId) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,34 @@
+package com.freelancing.webapplication.payloads;
+
+import java.util.Date;
+
+import lombok.*;
+
+
+
+	@Getter
+	@Setter
+	@NoArgsConstructor
+	@AllArgsConstructor
+	public class PostDto{
+
+		private Integer postId;
+		private String title;
+
+		private String content;
+
+		private String imagePath;
+
+		private CategoryDto categoryDto;
+
+		private UserDto userdto;
+
+		private Date date;
+		
+		private String hourlyCharges;
+
+		//private Set<Comment> comments = new HashSet<>();
+
+	}
+
+

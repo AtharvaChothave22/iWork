@@ -1,0 +1,5 @@
+package com.freelancing.webapplication.payloads;
+
+public class PostDto {
+
+}

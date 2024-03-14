@@ -23,7 +23,7 @@
 ### User
 - There will be four categories of Website users:
 	- Visitor (Unregistered User)
-	- Client
+	- Client  (registered as Recuriter)
 	- Freelancer
 	- Administrator (Admin)
 - Visitor will be able to just see the services offered by freelancer at what rate and can browse through many categories.

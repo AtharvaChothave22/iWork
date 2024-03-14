@@ -1,0 +1,13 @@
+package com.freelancing.webapplication;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FreelancingWebApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FreelancingWebApplication.class, args);
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.freelancing.webapplication.entities;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="category")
+public class Category {
+
+}

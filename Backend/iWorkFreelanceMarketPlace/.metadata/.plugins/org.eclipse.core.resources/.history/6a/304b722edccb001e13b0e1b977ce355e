@@ -1,0 +1,5 @@
+package com.freelancing.webapplication.exceptions;
+
+public class ResourceNotFoundException {
+
+}

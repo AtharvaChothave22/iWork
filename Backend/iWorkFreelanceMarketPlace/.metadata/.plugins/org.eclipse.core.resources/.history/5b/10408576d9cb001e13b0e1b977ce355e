@@ -1,0 +1,9 @@
+package com.freelancing.webapplication.services;
+
+public interface UserService {
+
+	/*
+	 * createUser(User user);
+	 */
+	
+}

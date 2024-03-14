@@ -1,0 +1,42 @@
+package com.freelancing.webapplication.exceptions;
+
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.freelancing.webapplication.payloads.ApiResponse;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public  ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException ex){
+		String message = ex.getMessage();
+		ApiResponse apiResponce = new ApiResponse(message , false);
+		return new ResponseEntity<ApiResponse>(apiResponce,HttpStatus.NOT_FOUND);
+		
+	}
+	
+	/*
+	 * @ExceptionHandler(ConstraintViolationException.class) public
+	 * ResponseEntity<Map<String, String>>
+	 * constraintViolationException(ConstraintViolationException ex) { Map<String,
+	 * String> errResult = new HashMap<>();
+	 * 
+	 * //here getBindingReults().getAllErrors() not working so i took reference from
+	 * stackoverflow
+	 * 
+	 * Set<ConstraintViolation<?>> constraintViolations =
+	 * ex.getConstraintViolations(); for (ConstraintViolation<?> violation :
+	 * constraintViolations) { String fieldName = ""; if
+	 * (violation.getPropertyPath() != null) { fieldName =
+	 * violation.getPropertyPath().toString(); }
+	 * 
+	 * String errorMessage = violation.getMessage(); errResult.put(fieldName,
+	 * errorMessage); }
+	 * 
+	 * return new ResponseEntity<>(errResult, HttpStatus.BAD_REQUEST); }
+	 */
+}

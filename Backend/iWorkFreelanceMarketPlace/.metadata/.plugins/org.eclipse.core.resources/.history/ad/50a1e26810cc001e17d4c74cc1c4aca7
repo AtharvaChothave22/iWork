@@ -1,0 +1,46 @@
+package com.freelancing.webapplication.exceptions;
+
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.freelancing.webapplication.payloads.ApiResponse;
+
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public  ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException ex){
+		String message = ex.getMessage();
+		ApiResponse apiResponce = new ApiResponse(message , false);
+		return new ResponseEntity<ApiResponse>(apiResponce,HttpStatus.NOT_FOUND);
+		
+	}
+	
+	
+	  @ExceptionHandler(MethodArgumentNotValidException.class) public
+	  ResponseEntity<Map<String, String>>
+	  handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) { Map<String,
+	  String> errResult = new HashMap<>();
+	  Set<ConstraintViolation<?>> constraintViolations =
+	  ex.getBindingResult(); for (ConstraintViolation<?> violation :
+	  constraintViolations) { String fieldName = ""; if
+	  (violation.getPropertyPath() != null) { fieldName =
+	  violation.getPropertyPath().toString(); }
+	  
+	  String errorMessage = violation.getMessage(); errResult.put(fieldName,
+	  errorMessage); }
+	  
+	  return new ResponseEntity<>(errResult, HttpStatus.BAD_REQUEST); }
+	 
+}

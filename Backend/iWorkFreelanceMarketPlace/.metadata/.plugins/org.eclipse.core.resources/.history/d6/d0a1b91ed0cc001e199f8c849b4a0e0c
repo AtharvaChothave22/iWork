@@ -1,0 +1,64 @@
+package com.freelancing.webapplication.entities;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
+
+@Entity
+@Table(name = "post")
+@Setter
+@Getter
+@NoArgsConstructor
+public class Post {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	private Integer postId;
+
+	@NotEmpty(message = "Title is required")
+	@Size(min = 5, message = "Title must have atleast five character")
+	@Column(name = "title", length = 100, nullable = false)
+	private String title;
+
+	@NotEmpty(message = "content is required")
+	@Size(min = 10, message = "content must have atleast ten character")
+	@Column(length = 10000, nullable = false)
+	private String content;
+
+
+	@Column(name = "image_path", length = 100, nullable = false)
+	private String imagePath;
+
+	private Date date;
+	
+	@Column(name = "hourly_Charges",  nullable = false)
+	private String hourlyCharges;
+	
+	@Column(name="status")
+	private boolean status ;
+	
+	/*
+	 * @Column(name="add_date") private Date addedDate;
+	 */
+
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
+
+	@ManyToOne
+	@JoinColumn(name = "post_id")
+	private User user;
+	/*
+	 * @OneToMany(mappedBy = "comments", cascade =
+	 * CascadeType.ALL,fetch=FetchType.EAGER) private Set<Comment> comments = new
+	 * HashSet<>();
+	 */
+
+}

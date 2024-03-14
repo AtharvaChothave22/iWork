@@ -1,0 +1,16 @@
+package com.freelancing.webapplication.payloads;
+
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class CategoryDto {
+	
+	 private Integer categoryId;
+	 private String categoryTitle; 
+	 private String categoryDiscription;
+	
+
+}
